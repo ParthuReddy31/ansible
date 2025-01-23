@@ -1,0 +1,6 @@
+- name: printing with prompt
+  hosts: web
+  tasks:
+  - name: prompt printing
+    ansible.builtin.debug:
+      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}" 
