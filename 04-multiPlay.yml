@@ -1,0 +1,3 @@
+- name: PLAY1
+  hosts: local
+  connection: local
