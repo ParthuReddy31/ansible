@@ -1,0 +1,11 @@
+- name: Variable Playbook
+  hosts: local
+  connection: local
+  vars:
+    COURSE: "DevSecOps With AWS"
+    DURATION: 120-Hrs
+    TRAINER: Siva_Kumar_Reddy
+  tasks:
+  - name: Printing Details Of Course
+    ansible.builtin.debug:
+      msg: "The Course that I've enrolled is {{ COURSE }} with duration {{ DURATION }} and trainer is {{ TRAINER }} "
