@@ -7,5 +7,7 @@
     TRAINER: Siva_Kumar_Reddy
   tasks:
   - name: Printing Details Of Course
+    vars:
+      COURSE: Ansible
     ansible.builtin.debug:
-      msg: "The Course that I've enrolled is {{ COURSE }} with duration {{ DURATION }} and trainer is {{ TRAINER }} "
+      msg: "The Course that I've enrolled is {{ COURSE }} and the duration is {{ DURATION }} and trainer is {{ TRAINER }} "
