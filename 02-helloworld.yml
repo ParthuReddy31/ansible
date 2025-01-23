@@ -1,0 +1,5 @@
+- name: helloworld playbook
+  hosts: web
+  tasks:
+    - name: print hello-world
+      msg: "Hello World"
