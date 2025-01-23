@@ -1,9 +1,22 @@
-- name: Printing with File variabels
+# - name: Printing with File variabels
+#   hosts: local
+#   connection: local
+#   vars_file:
+#   - course.yml
+#   tasks:
+#   - name: Printing Course Details Variables
+#     ansible.builtin.debug:
+#       msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
+
+
+- name: variables
   hosts: local
   connection: local
-  vars_file:
-  - course.yml
+  vars: # PLAY level variables
+    COURSE: "DevOps with AWS"
+    DURATION: 120HRS
+    TRAINER: Sivakumar
   tasks:
-  - name: Printing Course Details Variables
+  - name: print the variable
     ansible.builtin.debug:
       msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
