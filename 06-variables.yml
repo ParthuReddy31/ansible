@@ -9,6 +9,7 @@
   - name: Printing Details Of Course
     vars:
       COURSE: Ansible # task level Variables, accessiable with-in that task, and it can override playlevel variables
+      #local variabel
     ansible.builtin.debug:
       msg: "The Course that I've enrolled is {{ COURSE }} and the duration is {{ DURATION }} and trainer is {{ TRAINER }} "
 
