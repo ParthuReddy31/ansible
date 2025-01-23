@@ -1,7 +1,7 @@
-- name: Printing with Prompt
+- name: printing with prompt
   hosts: local
   connection: local
-  vars_prompt: 
+  vars_prompt:
   - name: COURSE
     prompt: Please enter the course name -
   - name: DURATION
@@ -10,6 +10,6 @@
     prompt: Please enter the Triner Name -
     
   tasks:
-  - name: Prompt printing
+  - name: prompt printing
     ansible.builtin.debug:
       msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}" 
