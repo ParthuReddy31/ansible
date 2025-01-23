@@ -1,20 +1,20 @@
-# - name: Printing with File variabels
-#   hosts: local
-#   connection: local
-#   vars_file:
-#   - course.yml
-#   tasks:
-#   - name: Printing Course Details Variables
-#     ansible.builtin.debug:
-#       msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
-
-
-- name: variables from files
+- name: variabels from file
   hosts: local
   connection: local
-  vars_files:
+  vars_file:
   - course.yml
   tasks:
-  - name: print course information
+  - name: Printing Course Details Variables
     ansible.builtin.debug:
       msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
+
+
+# - name: variables from files
+#   hosts: local
+#   connection: local
+#   vars_files:
+#   - course.yml
+#   tasks:
+#   - name: print course information
+#     ansible.builtin.debug:
+#       msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
