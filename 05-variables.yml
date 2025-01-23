@@ -8,6 +8,10 @@
   tasks:
   - name: Printing Details Of Course
     vars:
-      COURSE: Ansible
+      COURSE: Ansible # task level Variables
+    ansible.builtin.debug:
+      msg: "The Course that I've enrolled is {{ COURSE }} and the duration is {{ DURATION }} and trainer is {{ TRAINER }} "
+
+  - name: Printing Details Of Course
     ansible.builtin.debug:
       msg: "The Course that I've enrolled is {{ COURSE }} and the duration is {{ DURATION }} and trainer is {{ TRAINER }} "
