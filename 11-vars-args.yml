@@ -1,7 +1,7 @@
-- name: printing with prompt
+- name: printing with args
   hosts: local
   connections: local
   tasks:
-  - name: prompt printing
+  - name: args printing
     ansible.builtin.debug:
-      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}" 
+      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}"
