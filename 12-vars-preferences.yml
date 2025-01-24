@@ -16,6 +16,7 @@
     ansible.builtin.debug:
       msg: "Hello from {{ GREET }}"
 
+#list of varables preferences
 #1. Command line or args
 #2. Task level
 #3. Files
