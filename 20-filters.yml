@@ -29,3 +29,11 @@
       - {'key': 'triner', 'value': 'SivaKumarReddy'}
     ansible.builtin.debug:
       msg: "the course is: {{ course | items2dict }}"
+
+  - name: upper to lower
+    tags:
+    - uppertolower
+    vars:
+      name: "Parthu REDDY"
+    ansible.builtin.debug:
+      msg: "hello this is: {{ name | lower }}"
