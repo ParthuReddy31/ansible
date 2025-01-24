@@ -9,6 +9,7 @@
   - name: GREET
     prompt: Enter the value
     private: false
+
   tasks:
   - name: print the variable
     vars:
