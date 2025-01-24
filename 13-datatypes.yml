@@ -1,7 +1,7 @@
 - name: printing datatypes
   hosts: local
   connection: local
-  vars: 
+  vars:
     course_name: "Devops With AWS"
     duration: 120-hrs
     topics:
@@ -10,11 +10,11 @@
     - shell
     - ansible
     - AWS
-  live: true
-  tools:
-    ci: jenkins
-    cloud: aws
-    containerization: docker
+    live: true
+    tools:
+      ci: jenkins
+      cloud: aws
+      containerization: docker
   tasks:
   - name: printing datatypes
     ansible.builtin.debug:
