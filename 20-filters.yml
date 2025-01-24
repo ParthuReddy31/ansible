@@ -40,8 +40,16 @@
 
   - name: lower to upper
     tags:
-    - uppertolower
+    - lowertoupper
     vars:
       name: "parthu reddy"
     ansible.builtin.debug:
       msg: "hello this is: {{name}} lower-to-upper {{ name | upper }}"
+
+  - name: min and max
+    tags:
+    - minandmax
+    vars:
+      numbers: "1,23,34,44,56,67,78"
+    ansible.builtin.debug:
+      msg: "min is {{ numbers|min }}, and max is {{numbers|max}} "
