@@ -1,0 +1,13 @@
+- name: create and delete with loop
+  hosts: web
+  become: yes
+  tasks:
+  - name: create and delete with loop
+    ansible.builtin.package:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop:
+  - {name: 'git', state: 'absent'}
+  - {name: 'mysql', state: 'absent'}
+  - {name: 'gcc', state: 'absent'}
+  - {name: 'zip', state: 'absent'}
