@@ -58,6 +58,6 @@
     tags:
     - ipadd
     vars:
-      ip: 132.322.122.123
+      ip: 132.122.1.1
     ansible.builtin.debug:
       msg: "{{ ip | ansible.utils.ipaddr }}"
