@@ -1,7 +1,14 @@
-- name: printing with args
+# - name: printing with args
+#   hosts: local
+#   connections: local
+#   tasks:
+#   - name: args printing
+#     ansible.builtin.debug:
+#       msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}"
+- name: variables
   hosts: local
-  connections: local
+  connection: local
   tasks:
-  - name: args printing
+  - name: print the variable
     ansible.builtin.debug:
-      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}"
+      msg: "Course is {{ COURSE }}, Duration is {{ DURATION }}, Trainer is {{ TRAINER }}"
