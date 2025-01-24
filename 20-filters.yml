@@ -19,4 +19,4 @@
         duration: 10hrs
         triner: SivaKumarReddy
     ansible.builtin.debug:
-      msg: "the course is: {{ course }}"
+      msg: "the course is: {{ course | dict2items }}"
