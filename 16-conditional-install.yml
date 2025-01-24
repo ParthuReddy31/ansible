@@ -1,5 +1,6 @@
 - name: Nginx Installing with condition
   hosts: web
+  become: yes
   tasks:
   - name: if os is RHEL-install  nginx
     ansible.builtin.package:
