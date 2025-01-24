@@ -3,4 +3,6 @@
   tasks:
   - name: prompt printing
     ansible.builtin.debug:
-      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}" 
+      msg: "The course is {{ COURSE }} with the duration of {{ DURATION }} and the tariner is {{ TRAINER }}"
+
+# COURSE="DevOps with AWS" DURATION="120-Hrs" TRAINER="SivaKumarReddy" ansible_user=ec2-user ansible_password=DevOps321
