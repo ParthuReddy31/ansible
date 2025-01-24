@@ -13,4 +13,3 @@
     - name: nginx
       state: installed
     when: ansible_os_family == "Debian"
-  
