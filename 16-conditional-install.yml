@@ -1,15 +1,31 @@
-- name: Nginx Installing with condition
+# - name: Nginx Installing with condition
+#   hosts: web
+#   become: yes
+#   tasks:
+#   - name: if os is RHEL-install  nginx
+#     ansible.builtin.dnf:
+#     - name: nginx
+#       state: installed
+#     when: ansible_os_family == "RedHat"
+
+#   - name: if os is Debian-install  nginx
+#     ansible.builtin.apt:
+#     - name: nginx
+#       state: installed
+#     when: ansible_os_family == "Debian"
+
+- name: Install Nginx
   hosts: web
   become: yes
   tasks:
-  - name: if os is RHEL-install  nginx
+  - name: install nginx if RHEL
     ansible.builtin.dnf:
-    - name: nginx
+      name: nginx
       state: installed
     when: ansible_os_family == "RedHat"
 
-  - name: if os is Debian-install  nginx
+  - name: install nginx if Ubuntu
     ansible.builtin.apt:
-    - name: nginx
+      name: nginx
       state: installed
     when: ansible_os_family == "Debian"
