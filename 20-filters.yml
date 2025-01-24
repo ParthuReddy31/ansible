@@ -36,4 +36,12 @@
     vars:
       name: "PARTHU REDDY"
     ansible.builtin.debug:
-      msg: "hello this is: {{name}}, upper-to-lower {{ name | lower }}"
+      msg: "hello this is: {{name}} upper-to-lower {{ name | lower }}"
+
+  - name: lower to upper
+    tags:
+    - uppertolower
+    vars:
+      name: "PARTHU REDDY"
+    ansible.builtin.debug:
+      msg: "hello this is: {{name}} lower-to-upper {{ name | upper }}"
