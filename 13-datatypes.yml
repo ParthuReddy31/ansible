@@ -1,0 +1,21 @@
+- name: printing datatypes
+  hosts: local
+  connection: local
+  vars: 
+    course_name: "Devops With AWS"
+    duration: 120-hrs
+    topics:
+    - linux
+    - bash
+    - shell
+    - ansible
+    - AWS
+  live: true
+  tools:
+    ci: jenkins
+    cloud: aws
+    containerization: docker
+  tasks:
+  - name: printing datatypes
+    ansible.builtin.debug:
+      msg: "Hello I am learning {{ course_name }}, duration: {{ duration }}, topics are: {{ topics }}, is it live?: {{ live }}, tools covered are: {{ tools }}"
