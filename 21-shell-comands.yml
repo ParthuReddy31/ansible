@@ -4,3 +4,8 @@
   tasks:
   - name: shell and command
     ansible.builtin.command: ls -lt
+    register: command_result
+
+  - name: getting result
+    ansible,builtin.debug:
+      msg: "{{ command result }}"
