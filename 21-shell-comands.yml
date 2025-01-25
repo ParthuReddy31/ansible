@@ -7,5 +7,5 @@
     register: command_result
 
   - name: getting result
-    ansible,builtin.debug:
+    ansible.builtin.debug:
       msg: "{{ command result }}"
