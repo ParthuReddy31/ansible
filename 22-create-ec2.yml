@@ -39,11 +39,36 @@
       msg: "{{ item.instances[0].private_ip_address }}"
     loop: "{{ ec2_info.results }}"
 
-  - name: creating private r53 records
+  # - name: creating private r53 records
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ zone }}"
+  #     record: "{{ item.item }}.{{ zone }}"
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.instances[0].private_ip_address }}"
+  #     wait: true
+  #     overwrite: true
+  #   loop: "{{ ec2_info.results }}"
+
+  # - name: create public ip for frontend
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ zone }}"
+  #     record: "{{ zone }}"
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.instances[0].public_ip_address }}"
+  #     wait: true
+  #     overwrite: true
+  #   loop: "{{ec2_info.results}}"
+  #   when: item.item == "frontend"
+
+  - name: create private ip r53 records
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ item.item }}.{{ zone }}"
+      record: "{{ item.item}}.{{ zone }}"
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
@@ -61,5 +86,5 @@
       value: "{{ item.instances[0].public_ip_address }}"
       wait: true
       overwrite: true
-    loop: "{{ec2_info.results}}"
+    loop: "{{ ec2_info.results }}"
     when: item.item == "frontend"
