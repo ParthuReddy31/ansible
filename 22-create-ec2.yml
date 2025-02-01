@@ -34,7 +34,7 @@
       msg: "{{ec2_info}}"
 
   - name: creating private r53 records
-    ansible.aws.route53:
+    amazon.aws.route53:
       state: present
       zone: "{{zone}}"
       record: "{{item.item}}.{{zone}}"
@@ -46,7 +46,7 @@
     loop: "{{ec2_info.results}}"
 
   - name: create public ip for frontend
-    ansible.aws.route53:
+    amazon.aws.route53:
       state: present
       zone: "{{zone}}"
       record: "{{item.item}}.{{zone}}"
