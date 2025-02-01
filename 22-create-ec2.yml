@@ -1,0 +1,29 @@
+- name: creating ec2 instances
+  hosts: local
+  connection: local
+  vars:
+    subnet_id: subnet-000fc1916202c5bb1
+    sg_id: sg-0b030fd5e73eac564
+    ami_id: ami-09c813fb71547fc4f
+    instance_type: t3.micro
+    instances:
+    - mysql
+    - backend
+    - frontend
+  tasks:
+  - name: installing required libs
+    ansible.builtin.pip:
+      executable: pip3.9
+      name: "{{item}}"
+    loop:
+    - boto3
+    - botocore
+
+  - name: creating ec2 instances
+    amazon.aws.ec2-instance:
+      name: "{{item}}"
+      subnet_id: "{{subnet_id}}"
+      security_group: "{{sg_id}}"
+      image_id: "{{ami_id}}"
+      instance_type: "{{instance_type}}"
+    loop: "{{instances}}"
