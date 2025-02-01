@@ -1,4 +1,4 @@
-- name: creating ec2 instances
+- name: creating ec2 instances and r53 records
   hosts: local
   connection: local
   vars:
@@ -12,22 +12,23 @@
     - backend
     - frontend
   tasks:
+
   - name: installing required libs
     ansible.builtin.pip:
       executable: pip3.9
-      name: "{{item}}"
+      name: "{{ item }}"
     loop:
     - boto3
     - botocore
 
   - name: creating ec2 instances
     amazon.aws.ec2_instance:
-      name: "{{item}}"
-      subnet_id: "{{subnet_id}}"
-      security_group: "{{sg_id}}"
-      image_id: "{{ami_id}}"
-      instance_type: "{{instance_type}}"
-    loop: "{{instances}}"
+      name: "{{ item }}"
+      subnet_id: "{{ subnet_id }}"
+      security_group: "{{ sg_id }}"
+      image_id: "{{ ami_id }}"
+      instance_type: "{{ instance_type }}"
+    loop: "{{ instances }}"
     register: ec2_info
 
   # - name: printing ec2 info
@@ -37,24 +38,24 @@
     ansible.builtin.debug:
       msg: "{{ item.instances[0].private_ip_address }}"
     loop: "{{ ec2_info.results }}"
-    
+
   - name: creating private r53 records
     amazon.aws.route53:
       state: present
-      zone: "{{zone}}"
-      record: "{{item.item}}.{{zone}}"
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}"
       type: A
       ttl: 1
       value: "{{ item.instance[0].private_ip_address }}"
       wait: true
       overwrite: true
-    loop: "{{ec2_info.results}}"
+    loop: "{{ ec2_info.results }}"
 
   - name: create public ip for frontend
     amazon.aws.route53:
       state: present
-      zone: "{{zone}}"
-      record: "{{zone}}"
+      zone: "{{ zone }}"
+      record: "{{ zone }}"
       type: A
       ttl: 1
       value: "{{ item.instance[0].public_ip_address }}"
